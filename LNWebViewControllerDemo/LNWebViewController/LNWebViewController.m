@@ -50,6 +50,7 @@
         _progressView = [[UIProgressView alloc] initWithFrame:progressFrame];
         _progressView.alpha = 0.0f;
         _progressView.progressTintColor = self.progressColor ? self.progressColor : [UIColor colorWithRed:119.0/255 green:228.0/255 blue:115.0/255 alpha:1];
+        _progressView.trackTintColor = [UIColor clearColor];
     }
     return _progressView;
 }
@@ -71,10 +72,10 @@
         CGRect frame = CGRectMake(0, 10, self.view.frame.size.width, 20);
         _urlTipLabel = [[UILabel alloc] initWithFrame:frame];
         _urlTipLabel.backgroundColor = [UIColor clearColor];
-        _urlTipLabel.textColor = [UIColor lightGrayColor];
+        _urlTipLabel.textColor = [UIColor redColor];
         _urlTipLabel.textAlignment = NSTextAlignmentCenter;
         [self.webView addSubview:_urlTipLabel];
-        [self.webView sendSubviewToBack:_urlTipLabel];
+        [self.webView insertSubview:_urlTipLabel belowSubview:self.webView.scrollView];
     }
     return _urlTipLabel;
 }
